@@ -1,0 +1,84 @@
+<div class="container-fluid col-md-6">
+  <h3 class="text-center lead">Add Member to Racing Team</h3>
+  <br />
+  <!-- Model Driven Reactive Form -->
+  <form [formGroup]="memberForm" (ngSubmit)="onSubmit(memberForm)">
+    <div>
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <label>First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            placeholder="First Name"
+            formControlName="firstName"
+            required
+          />
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <label>Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            placeholder="Last Name"
+            formControlName="lastName"
+            required
+          />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <label>Job Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="jobTitle"
+            placeholder="Job Title"
+            formControlName="jobTitle"
+            required
+          />
+        </div>
+        <!--We may have to make a service call to get this list-->
+      </div>
+      <br />
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label id="activeStatus" class="md-check lead">
+            <input
+              type="radio"
+              value="Active"
+              name="status"
+              formControlName="status"
+              required
+            />
+            Active
+          </label>
+          <label class="md-check lead">
+            <input
+              type="radio"
+              value="Inactive"
+              name="status"
+              formControlName="status"
+              required
+            />
+            Inactive
+          </label>
+        </div>
+      </div>
+    </div>
+    <button (click)="goBack()" type="button" class="btn btn-primary pull-left">
+      Go Back
+    </button>
+    <!--Disable if form is invalid-->
+    <button
+      [disabled]="!memberForm.valid"
+      type="submit"
+      class="btn btn-primary pull-right"
+    >
+      Save Member
+    </button>
+  </form>
+</div>
